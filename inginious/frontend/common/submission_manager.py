@@ -514,4 +514,4 @@ def update_pending_jobs(database):
     # Updates the submissions that are waiting with the status error, as the server restarted
     database.submissions.update({'status': 'waiting'},
                                 {"$unset": {'jobid': ""},
-                                 "$set": {'status': 'error', 'grade': 0.0, 'text': 'Internal error. Server restarted'}}, multi=True)
+                                 "$set": {'status': 'error', 'grade': 0.0, 'text': _('Internal error. Server restarted')}}, multi=True)
